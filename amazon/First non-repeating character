@@ -1,0 +1,72 @@
+int n = a.size();
+
+       unordered_map<char, int> mp;
+
+       queue<char> q;
+
+        string ans = "";
+
+        char fnr = a[0];  // fnr → first non repeating
+
+
+ 
+
+        for(int i=0; i<n; ++i)
+
+        {
+
+           mp[a[i]]++;
+
+           q.push(a[i]);
+
+
+ 
+
+           if(fnr != '#' and mp[fnr] == 1)
+
+           {
+
+              ans += fnr;
+
+           }
+
+          else{
+
+            fnr = '#';
+
+
+ 
+
+            while(!q.empty() and mp[q.front()] != 1)
+
+            {
+
+              q.pop();
+
+            }
+
+
+ 
+
+            if(!q.empty())
+
+            {
+
+              fnr = q.front();
+
+            }
+
+           
+
+            cout<<fnr<<"\n";
+
+            ans += fnr;
+
+        }
+
+        }
+
+
+ 
+
+       return ans;
