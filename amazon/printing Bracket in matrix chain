@@ -1,0 +1,23 @@
+// Prints parenthesization in subexpression (i, j)
+printParenthesis(i, j, bracket[n][n], name)
+{
+    // If only one matrix left in current segment
+    if (i == j)
+    {
+        print name;
+        name++;
+        return;
+    }
+
+    print "(";
+
+    // Recursively put brackets around subexpression
+    // from i to bracket[i][j].
+    printParenthesis(i, bracket[i][j], bracket, name);
+
+    // Recursively put brackets around subexpression
+    // from bracket[i][j] + 1 to j.
+    printParenthesis(bracket[i][j]+1, j, bracket, name);
+
+    print ")";
+}
